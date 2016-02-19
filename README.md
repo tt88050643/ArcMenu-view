@@ -194,11 +194,11 @@
 
 ##总结
 1.先写xml布局文件，这个布局是个viewgroup，里面包含了imageview  
-2.然后写一个控件类，实现构造方法，重写onMeasure，onLayout方法  
+2.然后写一个控件类，实现构造方法（构造方法中拿到布局文件中的参数设置），重写onMeasure，onLayout方法  
 3.onMeasure方法中，我们在for循环中measure所有的子view，以便可以在onLayout中使用子view的宽和高，在`onMeasure(int widthMeasureSpec, int heightMeasureSpec)`方法中，两个参数是由包含view的viewgroup传进来的，由ViewGroup中的layout_width，layout_height和padding以及View自身的layout_margin共同决定。所以widthMeasureSpec和heightMeasureSpec是一个复合值，它的高两位是模式（模式有三种：UNSPECIFIED（未确定尺寸如listview），EXACTLY（精确尺寸），AT_MOST（WRAP_CONTENT下的最大尺寸）），低30位是size大小。  
 4.onLayout方法中，需要定位一个控件，需要上下左右边在屏幕中位置的数值，而这就需要onMeasure中测量出的子view的大小。  
 5.设置viewgroup的onclick事件（一开始 子Button是设置为GONE，这样整个viewgroup就只有主Button才可以点击），点击后开始执行子 Button的旋转和平移的动画，并设置了子 Button的点击监听  
-6.监听到点击事件后子 Button会消失
+6.监听到点击事件后子 Button会渐变消失
 
 
 
