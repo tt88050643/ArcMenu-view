@@ -98,8 +98,8 @@ public class ArcMenu extends ViewGroup implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         //mButton = findViewById(R.id.id_button);
-        rotateButton(v, 0f, 360f, 300);
-        toggleMenu(300);
+        rotateButton(v, 0f, 360f, 300);//主Button的旋转动画
+        toggleMenu(300);//子Button的旋转和平移动画
     }
 
     public boolean isOpen(){
